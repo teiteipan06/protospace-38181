@@ -5,7 +5,7 @@
         <%= @prototype.title%>
       </p>
       <%= link_to "by #{@prototype.user.name}", user_path(@prototype.user.id), class: :prototype__user %>
-      <% if user_signed_in? && @prototype.user == current_user %>
+      <% if user_signed_in? && @prototype.user.id == current_user.id %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
           <%= button_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
@@ -55,5 +55,6 @@
     </div>
   </div>
 </main>
+
 
 
